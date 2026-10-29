@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-jobs: 
+jobs:
   build:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: checkout-code
@@ -16,9 +16,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-        
+
       - name: Install dependecies
         run: npm install
 
       - name: Run test
-        run: npm test 
+        run: npm test
