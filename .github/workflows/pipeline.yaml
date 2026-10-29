@@ -1,0 +1,25 @@
+name: CI Pipeline
+
+on:
+  push:
+    branch: [ main ] # remove unnessary build for every branch, only build when main branch has changes
+
+jobs: 
+  build:
+    runs-on: unbuntu-latest
+
+  steps: 
+    - name: Checkout_code
+      uses: actions/checkout@v4
+
+  steps:
+    - name: set up Nodejs
+      uses: action/setup-node
+      with:
+        node-version: 26.12.1
+
+    - name: install dependencies
+      run: npm install
+    
+    - name: run test
+      run: npm test
